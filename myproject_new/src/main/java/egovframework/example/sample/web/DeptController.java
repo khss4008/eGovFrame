@@ -58,5 +58,36 @@ public class DeptController {
 		return "dept/deptDetail";
 	}
 	
+	@RequestMapping(value = "/deptDelete.do")
+	public String deptDelete(int deptno) throws Exception{
+		System.out.println("잘 들어갔나?"+deptno);
+		int no = deptService.deleteDept(deptno);
+		if(no == 1) {
+			System.out.println("삭제 성공");
+		}else {
+			System.out.println("삭제 실패");
+		}
+		return "";
+	}
+	
+	@RequestMapping(value = "/deptModifyWrite.do")
+	public String selectDeptModify(int deptno, ModelMap model) throws Exception{
+		
+		
+		DeptVO vo = deptService.selectDeptDetail(deptno);
+		model.addAttribute("vo", vo);
+		
+		return "dept/deptModifyWrite";
+	}
+	
+	@RequestMapping(value = "/deptModifySave.do")
+	public String updateDept(DeptVO vo) throws Exception{
+		
+		int no = deptService.updateDept(vo);
+		
+		if(no == 1) System.out.println("변경 완료");
+		else System.out.println("변경 실패");
+		return "";
+	}
 	
 }

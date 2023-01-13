@@ -25,6 +25,14 @@ public class DeptDAO extends EgovAbstractDAO{
 		return (DeptVO) select("deptDAO.selectDeptDetail", deptno);
 	}
 	
+	public int deleteDept(int deptno) {
+		return delete("deptDAO.deleteDept", deptno);
+	}
+
+	public int updateDept(DeptVO vo) {
+		return update("deptDAO.updateDept", vo);
+	}
+	
 	
 
 }

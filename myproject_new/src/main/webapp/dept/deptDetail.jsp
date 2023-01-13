@@ -44,8 +44,8 @@
 		
 		<tr>
 			<th colspan="2">
-			<button type="button">수정</button>
-			<button type="button">삭제</button>
+			<button type="button" onclick="location='deptModifyWrite.do?deptno=${deptVO.deptno}'">수정</button>
+			<button type="button" onclick="location='deptDelete.do?deptno=${deptVO.deptno}'">삭제</button>
 			</th>	
 		</tr>
 	</table>
