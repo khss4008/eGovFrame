@@ -10,12 +10,51 @@
 		 values(board_seq.nextval, #title#, #pass#, #name#, #content#, 0, sysdate)
 </insert>
 <select id="BoardDAO.selectNBoardList"  resultClass="egovMap">
-	<![CDATA[
+
 	select b.* from (
 select rownum rn, a.* from 
-(select rownum, unq, title, name, hits, to_char(rdate, 'yyyy-mm-dd') rdate from nboard order by unq desc)
+(
+select rownum, unq, title, name, hits, to_char(rdate, 'yyyy-mm-dd') rdate 
+from nboard 
+<isNotNull property="searchGubun">
+	<isNotNull property="searchText">
+		where $searchGubun$ like '%$searchText$%'
+	</isNotNull>
+</isNotNull>
+ order by unq desc
+)
 a)
-b where rn >=11 and rn <=20
-]]>
+
+b where rn>=#startIndex# and rn<![CDATA[  <=]]>#endIndex#
+
 </select>
+<select id="BoardDAO.selectNBoardTotal" resultClass="java.lang.Integer">
+	select count(*) from nboard 
+	<isNotNull property="searchGubun">
+		<isNotNull property="searchText">
+			where $searchGubun$ like '%$searchText$%'
+		</isNotNull>
+	</isNotNull>
+</select>
+
+<select id="BoardDAO.selectNBoardDetail" resultClass="boardVO">
+	select unq, title, pass, name, content, hits, to_char(rdate, 'yyyy-mm-dd') rdate 
+	from nboard where unq='$unq$'
+</select>
+
+<update id="BoardDAO.updateNBoardHits" >
+	update nboard set hits=hits+1 where unq=#unq#
+</update>
+
+<update id="BoardDAO.updateNBoard">
+	update nboard set title=#title#,
+	 content=#content#,
+	 name=#name#
+	  where unq=#unq#
+</update>
+
+<select id="BoardDAO.selectNBoardPass" resultClass="java.lang.Integer">
+	select count(*) from nboard where unq=#unq# and pass=#pass#
+</select>
+
 </sqlMap>

@@ -10,7 +10,57 @@ public class BoardVO {
 	private String content;
 	private int hits;
 	private String rdate;
+	//페이징처리 변수
+	private int viewPage = 1;
+	private int startIndex = 1;
+	private int endIndex = 10;
 	
+	//검색 시 사용하는 변수
+	private String searchGubun;
+	private String searchText;
+	
+	//get, set
+	public String getSearchGubun() {
+		return searchGubun;
+	}
+
+	public void setSearchGubun(String searchGubun) {
+		this.searchGubun = searchGubun;
+	}
+
+	public String getSearchText() {
+		return searchText;
+	}
+
+	public void setSearchText(String searchText) {
+		this.searchText = searchText;
+	}
+
+	
+	public int getStartIndex() {
+		return startIndex;
+	}
+
+	public void setStartIndex(int startIndex) {
+		this.startIndex = startIndex;
+	}
+
+	public int getEndIndex() {
+		return endIndex;
+	}
+
+	public void setEndIndex(int endIndex) {
+		this.endIndex = endIndex;
+	}
+
+	public int getViewPage() {
+		return viewPage;
+	}
+
+	public void setViewPage(int viewPage) {
+		this.viewPage = viewPage;
+	}
+
 	public BoardVO() {
 		// TODO Auto-generated constructor stub
 	}

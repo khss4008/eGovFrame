@@ -22,15 +22,51 @@
 		border:1px solid #cccccc;
 		padding:5px;
 	}
-
+	
+	.div1{
+	
+		width:400px;
+		text-align:left;
+		font-size:11pt;
+	
+	}
+	.div2{
+	
+		width:400px;
+		text-align:left;
+		font-size:8pt;
+	
+	}
+	.name{
+	font-size:15pt;
+	}
 </style>
 <body>
 	
-	<table>
+		<div class=div1>
+			<div class=name>일반게시판 목록</div>
+			<div>Total : ${total }</div>
+		</div>
+	<div class=div2>
 	
-		<caption>
-		<div>코드목록</div><br>
-		</caption>
+	<form name="searchFrm" method="post" action="boardList.do">
+	
+	<select name="searchGubun" id="searchGubun">
+		<option value="title">제목</option>
+		<option value="name">글쓴이</option>
+		<option value="content">내용</option>
+	</select>
+	<input type="text" name="searchText" id="searchText">
+	<button type="submit">검색</button>
+	
+	</form>
+	
+	</div>
+	
+	<table>
+		
+
+		
 		<colgroup>
 			<col witdth="20%"/>
 			<col witdth="20%"/>
@@ -46,18 +82,28 @@
 			<th width="20%">등록일</th>
 			<th width="20%">조회수</th>
 		</tr>
+		<c:set var="cnt" value="${rowNumber }" />
 		<c:forEach var="a" items="${resultList}">
 		<tr align="center">
-			<td>${a.unq }</td>
-			<td>${a.title }</td>
+			<td>${cnt }</td>
+			<td><a href="boardDetail.do?unq=${a.unq}">${a.title }</a></td>
 			<td>${a.name }</td>
 			<td>${a.rdate }</td>
 			<td>${a.hits }</td>
 		</tr>	
 			</td>		
+			<c:set var="cnt" value="${cnt-1 }"/>
 		</c:forEach>
 	</table>
 	
+	<div style="width:400px;margin-top:5px; text-align:center">
+		<c:forEach var="i" begin="1" end="${totalPage }">
+			
+			<a href="boardList.do?viewPage=${i }">${i }</a> 
+			
+		</c:forEach>
+	</div>
+
 	<div style="width:400px;margin-top:5px; text-align:right">
 		<button type="button" onclick="location='boardWrite.do'">글쓰기</button>
 	</div>
