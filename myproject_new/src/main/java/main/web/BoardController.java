@@ -74,7 +74,7 @@ public class BoardController {
 		return "board/boardList";
 	}
 	
-	@RequestMapping("boardDetail.do")
+	@RequestMapping("/boardDetail.do")
 	public String boardDetail(BoardVO vo, ModelMap model) throws Exception{
 		
 		//조회수 증가
@@ -96,7 +96,7 @@ public class BoardController {
 
 		return "board/boardModifyWrite";
 	}
-	@RequestMapping("boardModifySave.do")
+	@RequestMapping("/boardModifySave.do")
 	@ResponseBody
 	public String boardModifySave(BoardVO vo) throws Exception{
 
@@ -109,6 +109,14 @@ public class BoardController {
 		}
 		
 		return result+"";
+	}
+	
+	@RequestMapping("/passWrite.do")
+	public String passWrite(int unq, ModelMap model) {
+		
+		model.addAttribute("unq", unq);
+		
+		return "board/passWrite";
 	}
 	
 }
