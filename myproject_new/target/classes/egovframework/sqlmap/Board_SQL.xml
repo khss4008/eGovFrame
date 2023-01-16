@@ -10,6 +10,12 @@
 		 values(board_seq.nextval, #title#, #pass#, #name#, #content#, 0, sysdate)
 </insert>
 <select id="BoardDAO.selectNBoardList"  resultClass="egovMap">
-	select unq, title, name, hits, to_char(rdate, 'yyyy-mm-dd') rdate from nboard order by unq desc
+	<![CDATA[
+	select b.* from (
+select rownum rn, a.* from 
+(select rownum, unq, title, name, hits, to_char(rdate, 'yyyy-mm-dd') rdate from nboard order by unq desc)
+a)
+b where rn >=11 and rn <=20
+]]>
 </select>
 </sqlMap>
