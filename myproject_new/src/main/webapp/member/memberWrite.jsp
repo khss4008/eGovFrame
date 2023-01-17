@@ -53,9 +53,48 @@
 
  	$(function(){
 		
-		 $("birth").datepicker({
+		 $("#birth").datepicker({
 			changeMonth: true,
 			changeYear:true
+		});
+		
+		 $("#btn_zipcode").click(function(){
+			 
+			 var w = 500;
+			 var h = 100;
+			 var url = "post1.do";
+			 
+			 window.open(url, 'zipcode', "width="+w+",height="+h);
+			 
+		 });
+		 
+		$("#btn_idcheck").click(function(){
+			
+			var userid = $.trim($("#userid").val());		//현재 창에 입력된 값
+			if(userid ==""){
+				alert("아이디를 입력해주세요.");
+				$("#userid").focus();
+				return false;
+			}
+			// idcheck.do로 데이터 전송
+			$.ajax({
+				
+				type:"POST",
+				data:"userid="+userid,
+				url:"idcheck.do",
+				dataType:"text", 		//리턴 타입
+				success: function(data){	// controller -> ok
+					if(data == "ok"){
+						alert("사용 가능한 아이디입니다.");
+					}else{
+						alert("이미 사용중인 아이디입니다.");
+					}
+				}, 
+				error: function(){		//장애 발생
+					alert("오류발생");
+				}
+				
+			});
 		});
 		
 		$("#btn_submit").click(function() {
@@ -85,6 +124,27 @@
 			$("#userid").val(userid);
 			$("#pass").val(pass);
 			$("#name").val(name);
+		
+			var formData = $("#frm").serialize();
+			
+			$.ajax({ 
+				
+				type:"POST",
+				data:formData,
+				url:"memberWriteSave.do",
+				dataType:"text", 		//리턴 타입
+				success: function(data){	// controller -> ok
+					if(data == "ok"){
+						alert("저장 완료");
+						location="loginWrite.do";
+					}else{
+						alert("저장 실패");
+					}
+				}, 
+				error: function(){		//장애 발생
+					alert("오류발생");
+				}
+			});
 			
 		});
 		
@@ -114,7 +174,7 @@
 		<th><label for="userid">아이디</label></th>
 		<td>
 			<input type="text" name="userid" id="userid" placeholder="아이디입력">
-			<button type="button">중복체크</button>
+			<button type="button" id="btn_idcheck">중복체크</button>
 			
 		</td>
 	</tr>
@@ -153,7 +213,7 @@
 		<th><label for="address">주소</label></th>
 		<td>
 			<input type="text" name="zipcode" id="zipcode">
-			<button type="button">우편번호찾기</button>
+			<button type="button" id="btn_zipcode">우편번호찾기</button>
 			<br>
 			<input type="text" name="address" id="address">
 		</td>
