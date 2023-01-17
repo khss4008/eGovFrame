@@ -119,4 +119,19 @@ public class BoardController {
 		return "board/passWrite";
 	}
 	
+	@RequestMapping("/boardDelete.do")
+	@ResponseBody
+	public String boardDelete(BoardVO vo) throws Exception{
+		int result = 0;
+		
+		//암호 일치 검사
+		int count = boardService.selectNBoardPass(vo);	//count = 1;
+		if(count ==1) {			
+			result = boardService.boardDelete(vo);
+		}else if(count == 0) {
+			result = -1;
+		}
+		return result + "";
+	}
+	
 }

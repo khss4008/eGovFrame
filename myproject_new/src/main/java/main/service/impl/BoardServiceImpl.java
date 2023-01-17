@@ -51,5 +51,10 @@ public class BoardServiceImpl extends EgovAbstractServiceImpl implements BoardSe
 		return boardDAO.selectNBoardPass(vo);
 	}
 
+	@Override
+	public int boardDelete(BoardVO vo) throws Exception {
+		return boardDAO.boardDelete(vo);
+	}
+
 	
 }

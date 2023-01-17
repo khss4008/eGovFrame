@@ -56,5 +56,7 @@ b where rn>=#startIndex# and rn<![CDATA[  <=]]>#endIndex#
 <select id="BoardDAO.selectNBoardPass" resultClass="java.lang.Integer">
 	select count(*) from nboard where unq=#unq# and pass=#pass#
 </select>
-
+<delete id="BoardDAO.boardDelete">
+	delete from nboard where unq=#unq# and pass=#pass#
+</delete>
 </sqlMap>
