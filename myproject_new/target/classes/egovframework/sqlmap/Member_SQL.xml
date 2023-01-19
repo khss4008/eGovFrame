@@ -7,7 +7,7 @@
 	
 	<insert id="memberDAO.insertMember">
 		insert into member(userid, pass, name, birth, phone, gender, zipcode, address)
-		 values(#userid#, #pass#, #name#, #birth#,
+		 values(#userid#, #pass#, #name#, TO_DATE(#birth#, 'MM/DD/YYYY'),
 		  #phone#, #gender#, #zipcode#, #address#)
 	</insert>
 	<select id="memberDAO.idCheck" resultClass="java.lang.Integer">
@@ -27,5 +27,9 @@
 		 from post where 
 		a4 like '%'||#dong#||'%'
 		or a5 like '%'||#dong#||'%'
+	</select>
+	<select id="memberDAO.selectMemberCount" resultClass="java.lang.Integer">
+		select count(*) from member where
+		 userid=#userid# and pass=#pass#
 	</select>
 </sqlMap>

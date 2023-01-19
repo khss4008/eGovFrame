@@ -42,7 +42,7 @@
 	}
 </style>
 <body>
-	
+	<%@include file="../include/topmenu.jsp" %>
 		<div class=div1>
 			<div class=name>일반게시판 목록</div>
 			<div>Total : ${total }</div>

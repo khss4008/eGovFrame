@@ -9,4 +9,7 @@ public interface MemberService {
 	public int idCheck(String userId) throws Exception;
 	//우편번호 주소 검색
 	public List<?> selectPostList(String dong) throws Exception;
+	//로그인데이터 확인
+	public int selectMemberCount(MemberVO vo) throws Exception;
+	
 }
