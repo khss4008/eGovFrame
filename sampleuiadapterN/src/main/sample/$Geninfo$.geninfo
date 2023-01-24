@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <GenInfo version="1.1">
+    <Rule>
+      <ENV rule_version="1.05"/>
+      <ADL rule_version="1.14"/>
+      <FDL rule_version="1.04"/>
+      <XCSS rule_version="1.04"/>
+      <Script rule_version="1.02"/>
+      <GeneratorInfo rule_version="1.2"/>
+    </Rule>
+    <Info project="C:\eGovFrameDev-4.0.0-64bit\workspace\sampleuiadapterN\src\main\sample\" generated="C:\eGovFrameDev-4.0.0-64bit\workspace\sampleuiadapterN\src\main\webapp\"><File url="typedefinition.xml" checksum="20230119174647" errormsg=""/><File url="appvariables.xml" checksum="20230119174647" errormsg=""/><File url="environment.xml" checksum="20230119174647" errormsg=""/><File url="_resource_\_theme_\blue\theme.xcss" checksum="20230119174647" errormsg=""/><File url="Application_Desktop.xadl" checksum="20230119174647" errormsg=""/><File url="FrameBase\Form_Work.xfdl" checksum="20230119180012" errormsg=""/><File url="C:\Program Files (x86)\TOBESOFT\Nexacro N\SDK\21.0.0\nexacrolib\framework\Framework.json" checksum="20220628093824" errormsg=""/><File url="C:\Program Files (x86)\TOBESOFT\Nexacro N\SDK\21.0.0\nexacrolib\resources\Resource.json" checksum="20220628093826" errormsg=""/><File url="C:\Program Files (x86)\TOBESOFT\Nexacro N\SDK\21.0.0\nexacrolib\component\CompBase.json" checksum="20220628093818" errormsg=""/><File url="C:\Program Files (x86)\TOBESOFT\Nexacro N\SDK\21.0.0\nexacrolib\component\ComComp.json" checksum="20220628093818" errormsg=""/><File url="C:\Program Files (x86)\TOBESOFT\Nexacro N\SDK\21.0.0\nexacrolib\component\Grid.json" checksum="20220628093820" errormsg=""/><File url="C:\Program Files (x86)\TOBESOFT\Nexacro N\SDK\21.0.0\nexacrolib\component\ListView.json" checksum="20220628093826" errormsg=""/><File url="C:\Program Files (x86)\TOBESOFT\Nexacro N\SDK\21.0.0\nexacrolib\component\DeviceAPI.json" checksum="20220628093820" errormsg=""/></Info>
+  </GenInfo>
+</root>

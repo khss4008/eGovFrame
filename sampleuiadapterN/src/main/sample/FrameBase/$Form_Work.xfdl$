@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="Form_Work" width="1280" height="720" titletext="Form_Work">
+    <Layouts>
+      <Layout width="1280" height="720" screenid="Desktop_screen">
+        <Combo id="Combo00" taborder="0" text="Combo00" left="152" top="138" width="109" height="26"/>
+        <Edit id="Edit00" taborder="1" left="276" top="136" width="112" height="28"/>
+        <Button id="Button00" taborder="2" text="Button00" left="896" top="128" width="130" height="56"/>
+        <Grid id="Grid00" taborder="3" left="164" top="206" width="864" height="234"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_search"/>
+      <Dataset id="ds_list"/>
+    </Objects>
+  </Form>
+</FDL>

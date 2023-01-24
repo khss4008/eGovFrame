@@ -1,0 +1,8 @@
+﻿{
+admin off
+}
+:4098
+{
+root "C:/eGovFrameDev-4.0.0-64bit/workspace/sampleuiadapterN/src/main/webapp"
+file_server
+}
